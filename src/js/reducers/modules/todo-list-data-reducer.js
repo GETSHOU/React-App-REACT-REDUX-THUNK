@@ -6,6 +6,8 @@ const todoListDataReducer = (state = [], action) => {
 			return payload;
 		case 'GET_TODO_LIST_ERROR':
 			return [];
+		case 'CREATE_TODO_SUCCESS':
+			return [...state, payload];
 		default:
 			return state;
 	}

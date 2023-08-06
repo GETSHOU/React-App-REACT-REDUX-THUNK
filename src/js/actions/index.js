@@ -1,3 +1,4 @@
+import { createTodo } from './actionCreators/create-todo';
 import { getTodoList } from './actionCreators/get-todo-list';
 
-export { getTodoList };
+export { createTodo, getTodoList };
