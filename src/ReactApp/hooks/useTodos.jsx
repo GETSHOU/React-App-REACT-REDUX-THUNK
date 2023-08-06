@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useDebounce } from '../hooks/useDebounce';
-import todosService from "../services/todos.service";
+import todosService from "../../js/services/todos.service";
 
 const TodosContext = createContext(null);
 

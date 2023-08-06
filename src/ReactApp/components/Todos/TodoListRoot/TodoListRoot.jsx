@@ -6,7 +6,6 @@ import { TodoListTools } from '../../TodoTools/TodoListTools/TodoListTools';
 import { TodosSortingButton } from '../../TodosSortingButton/TodosSortingButton';
 import styles from './TodoListRoot.module.css';
 
-// json-server --watch ./src/data/todoList.json --delay 500 --port 3004
 export const TodoListRoot = () => {
 	return (
 		<div className={styles.wrapper}>
