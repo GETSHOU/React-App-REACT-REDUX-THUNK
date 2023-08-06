@@ -7,7 +7,11 @@ const todosService = {
 		const response = await fetch(`${BASE_URL}/${todosEndPoint}`);
 		const data = await response.json();
 
-		return data;
+		if (response.ok) {
+			return data;
+		} else if (response.status === 404) {
+			throw new Error(`ОШИБКА ${response.status}! ПУТЬ НЕ НАЙДЕН!`);
+		}
 	},
 	delete: async (id) => {
 		await fetch(`${BASE_URL}/${todosEndPoint}/${id}`, {

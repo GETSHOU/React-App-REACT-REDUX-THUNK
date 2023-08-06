@@ -15,20 +15,6 @@ const TodosProvider = ({ children }) => {
 
 	const valueSearch = useDebounce(fieldValueSearchQuery);
 
-	const getTodos = async () => {
-		try {
-			setIsLoading(true);
-
-			const data = await todosService.get();
-
-			setDataTodoList(data);
-
-			setIsLoading(false);
-		} catch (error) {
-			console.log(error);
-		}
-	}
-
 	const deleteTodo = async (id) => {
 		try {
 			setIsLoading(true);
@@ -94,10 +80,6 @@ const TodosProvider = ({ children }) => {
 			console.log(error);
 		}
 	}
-
-	useEffect(() => {
-		getTodos();
-	}, []);
 
 	useEffect(() => {
 		const searchQuery = async () => {

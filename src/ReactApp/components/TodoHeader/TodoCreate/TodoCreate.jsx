@@ -1,7 +1,7 @@
 import { useTodos } from '../../../hooks/useTodos';
-import styles from './TodoAdd.module.css';
+import styles from './TodoCreate.module.css';
 
-export const TodoAdd = () => {
+export const TodoCreate = () => {
 	const { handleChangeAddTodo, fieldValueAddTodo } = useTodos();
 
 	return (

@@ -1,6 +1,5 @@
-import TodosProvider from '../../../hooks/useTodos';
-import { TodoAdd } from '../../TodoHeader/TodoAdd/TodoAdd';
 import { TodoList } from '../../Todos/TodoList/TodoList';
+import { TodoCreate } from '../../TodoHeader/TodoCreate/TodoCreate';
 import { TodoSearch } from '../../TodoHeader/TodoSearch/TodoSearch';
 import { TodoListTools } from '../../TodoTools/TodoListTools/TodoListTools';
 import { TodosSortingButton } from '../../TodosSortingButton/TodosSortingButton';
@@ -9,17 +8,15 @@ import styles from './TodoListRoot.module.css';
 export const TodoListRoot = () => {
 	return (
 		<div className={styles.wrapper}>
-			<h1 className={styles.title}>My Todo-s</h1>
-			<TodosProvider>
-				<TodoSearch />
-				<div className={styles.toolsWrapper}>
-					<TodoAdd />
-					<TodoListTools />
-				</div>
-				<TodosSortingButton />
-				<div className={styles.divider}></div>
-				<TodoList />
-			</TodosProvider>
+			<h1 className={styles.title}>My To-do list</h1>
+			{/* <TodoSearch /> */}
+			<div className={styles.toolsWrapper}>
+				{/* <TodoCreate /> */}
+				{/* <TodoListTools /> */}
+			</div>
+			{/* <TodosSortingButton /> */}
+			<div className={styles.divider}></div>
+			<TodoList />
 		</div>
 	)
 }
