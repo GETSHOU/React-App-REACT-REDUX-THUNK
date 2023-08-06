@@ -1,5 +1,5 @@
-import { useTodos } from '../../hooks/useTodos';
-import { Loader } from "../Loader/Loader";
+import { useTodos } from '../../../hooks/useTodos';
+import { Loader } from "../../Loader/Loader";
 import { TodoItem } from '../TodoItem/TodoItem';
 import styles from './TodoList.module.css';
 

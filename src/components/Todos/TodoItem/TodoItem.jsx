@@ -1,7 +1,7 @@
-import { useTodos } from '../../hooks/useTodos';
 import { useState, useRef } from 'react';
+import { useTodos } from '../../../hooks/useTodos';
+import { TodoItemTools } from '../../TodoTools/TodoItemTools/TodoItemTools';
 import styles from './TodoItem.module.css';
-import { TodoItemTools } from '../TodoItemTools/TodoItemTools';
 
 export const TodoItem = ({id, currentText}) => {
 	const { updateTodo } = useTodos();
