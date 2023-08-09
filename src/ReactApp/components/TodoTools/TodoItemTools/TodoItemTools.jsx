@@ -1,4 +1,3 @@
-import { useTodos } from '../../../hooks/useTodos';
 import styles from './TodoItemTools.module.css';
 
 export const TodoItemTools = ({
@@ -6,12 +5,10 @@ export const TodoItemTools = ({
 	isEdit,
 	handleEdit,
 	handleCancel,
+	valueEditTodo,
 	handleUpdateTodo,
-	fieldValueToDoEdit,
-	fieldValueToDoEditChanged
+	valueEditTodoChanged
 }) => {
-	const { handleDeleteTodo } = useTodos();
-
 	return (
 		<div className={styles.tools}>
 			{!isEdit
@@ -19,14 +16,14 @@ export const TodoItemTools = ({
 						<button className={`${styles.button} ${styles.editButton}`}
 										onClick={() => handleEdit()}>EDIT
 						</button>
-						<button className={`${styles.button} ${styles.deleteButton}`}
+						{/* <button className={`${styles.button} ${styles.deleteButton}`}
 										onClick={() => handleDeleteTodo(id)}>DEL
-						</button>
+						</button> */}
 					</>
 				: <>
 						<button className={`${styles.button} ${styles.saveButton}`}
-										onClick={() => handleUpdateTodo(id, fieldValueToDoEdit)}
-										disabled={!fieldValueToDoEditChanged}>SAVE
+										onClick={() => handleUpdateTodo(id, valueEditTodo.trim())}
+										disabled={!valueEditTodoChanged}>SAVE
 						</button>
 						<button className={`${styles.button} ${styles.cancelButton}`}
 										onClick={() => handleCancel()}>CANCEL

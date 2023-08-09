@@ -23,11 +23,12 @@ export const TodoList = () => {
 					? <Loader />
 					: <>
 							{todoList.map((todo) => {
+
 								return (
 									<TodoItem
 										key={todo.id}
 										id={todo.id}
-										currentText={todo.text}
+										currentTextTodo={todo.text}
 									/>
 								)}
 							)}

@@ -1,18 +1,17 @@
-const todoListState = (state) => {
-	// console.log(state);
-	return state.dataTodoList;
-};
 const loadingState = (state) => state.flags.isLoading;
+const todoListState = (state) => state.dataTodoList;
 const valueCreateTodoState = (state) => state.flags.valueCreateTodo;
 const valueSearchQueryState = (state) => state.flags.valueSearchQuery;
 const errorLoadingTodoListState = (state) => state.errorLoadingTodoList;
 
 export {
-	/* flags start */
+	/* flags */
 	loadingState,
+	/* input fields */
 	valueCreateTodoState,
 	valueSearchQueryState,
-	/* flags end */
+	/* data */
 	todoListState,
+	/* errors */
 	errorLoadingTodoListState,
 };

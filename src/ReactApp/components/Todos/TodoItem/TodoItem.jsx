@@ -1,39 +1,44 @@
-import { useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRef, useState } from 'react';
+import * as selector from '../../../../js/selectors/index';
+import * as action from '../../../../js/actions/index';
 import { TodoItemTools } from '../../TodoTools/TodoItemTools/TodoItemTools';
 import styles from './TodoItem.module.css';
 
-export const TodoItem = ({id, currentText}) => {
+export const TodoItem = ({id, currentTextTodo}) => {
+	const [valueEditTodoChanged, setValueEditTodoChanged] = useState(false);
+
+
+	// const valueEditTodo = useSelector(selector.valueEditTodoState);
+
 	const [isEdit, setEdit] = useState(false);
-	const [fieldValueToDoEdit, setFieldValueToDoEdit] = useState(currentText);
-	const [fieldValueToDoEditChanged, setFieldValueToDoEditChanged] = useState(false);
+	const [valueEditTodo, setValueEditTodo] = useState(currentTextTodo);
 
 	const inputRef = useRef(null);
+	const dispatch = useDispatch();
 
-	// const handleUpdateTodo = async (id, updatedTodo) => {
-	// 	if (updatedTodo !== currentText) {
-	// 		await updateTodo(id, updatedTodo);
-	// 		setEdit(false);
-	// 		console.log('Данные отправлены!');
-	// 	} else {
-	// 		setEdit(false);
-	// 		setFieldValueToDoEditChanged(false);
-
-	// 		return;
-	// 	}
-
-	// 	await updateTodo(id, updatedTodo);
-
-	// 	setEdit(false);
-	// };
-
-	const handleChangeEditTodo = ({target}) => {
-		if (currentText !== target.value && target.value !== '') {
-			setFieldValueToDoEdit(target.value);
-			setFieldValueToDoEditChanged(true);
+	const handleUpdateTodo = (id, updatedTodo) => {
+		if (updatedTodo !== currentTextTodo) {
+			dispatch(action.editTodo(id, updatedTodo));
 		} else {
-			setFieldValueToDoEdit(target.value);
-			setFieldValueToDoEditChanged(false);
+			setValueEditTodoChanged(false);
+			return;
 		}
+
+		setEdit(false);
+	};
+
+	const handleChangeEditTodo = (newText) => {
+		if (currentTextTodo !== newText && newText !== '') {
+			setValueEditTodoChanged(true);
+			if (newText.trim().length === 0) {
+				setValueEditTodoChanged(false);
+			}
+		} else {
+			setValueEditTodoChanged(false);
+		}
+
+		setValueEditTodo(newText);
 	};
 
 	const handleEdit = () => {
@@ -43,37 +48,30 @@ export const TodoItem = ({id, currentText}) => {
 
 	const handleCancel = () => {
 		inputRef.current.focus();
-		setFieldValueToDoEdit(currentText);
-		setFieldValueToDoEditChanged(false);
+		setValueEditTodo(currentTextTodo);
+		setValueEditTodoChanged(false);
 		setEdit(false);
 	};
 
+	//
 	return (
-		<li className={styles.item}>
+		<li className={!isEdit ? styles.item : `${styles.item} ${styles.itemIsEdit}`}>
 			<input type="text"
-				value={currentText}
-				readOnly={true}
-				className={styles.field}
+				ref={inputRef}
+				value={!isEdit ? currentTextTodo : valueEditTodo}
+				readOnly={!isEdit}
+				className={!isEdit ? styles.field : `${styles.field} ${styles.fieldIsEdit}`}
+				onChange={({target}) => handleChangeEditTodo(target.value)}
+			/>
+			<TodoItemTools
+				id={id}
+				isEdit={isEdit}
+				handleEdit={handleEdit}
+				handleCancel={handleCancel}
+				valueEditTodo={valueEditTodo}
+				handleUpdateTodo={handleUpdateTodo}
+				valueEditTodoChanged={valueEditTodoChanged}
 			/>
 		</li>
-
-		// <li className={!isEdit ? styles.item : `${styles.item} ${styles.itemIsEdit}`}>
-		// 	<input type="text"
-		// 		ref={inputRef}
-		// 		value={!isEdit ? currentText : fieldValueToDoEdit}
-		// 		readOnly={!isEdit}
-		// 		className={!isEdit ? styles.field : `${styles.field} ${styles.fieldIsEdit}`}
-		// 		onChange={handleChangeEditTodo}
-		// 	/>
-		// 	<TodoItemTools
-		// 		id={id}
-		// 		isEdit={isEdit}
-		// 		handleEdit={handleEdit}
-		// 		handleCancel={handleCancel}
-		// 		handleUpdateTodo={handleUpdateTodo}
-		// 		fieldValueToDoEdit={fieldValueToDoEdit}
-		// 		fieldValueToDoEditChanged={fieldValueToDoEditChanged}
-		// 	/>
-		// </li>
 	)
 }

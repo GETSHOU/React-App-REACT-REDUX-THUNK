@@ -1,7 +1,11 @@
 export {
+	/* flags */
 	loadingState,
-	todoListState,
+	/* input fields */
 	valueCreateTodoState,
 	valueSearchQueryState,
+	/* data */
+	todoListState,
+	/* errors */
 	errorLoadingTodoListState,
 } from './selectors';

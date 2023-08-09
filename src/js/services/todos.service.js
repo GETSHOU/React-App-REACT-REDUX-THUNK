@@ -1,6 +1,4 @@
-import { BASE_URL } from './http.services';
-
-const todosEndPoint = 'todos';
+import { BASE_URL, todosEndPoint } from './http.services';
 
 const todosService = {
 	get: async () => {
@@ -29,7 +27,7 @@ const todosService = {
 
 		return data;
 	},
-	update: async (id, currentTodo, text) => {
+	edit: async (id, currentTodo, text) => {
 		const response = await fetch(`${BASE_URL}/${todosEndPoint}/${id}`, {
 			method: 'PATCH',
 			headers: { 'Content-Type': 'application/json;charset=utf-8' },
