@@ -14,7 +14,7 @@ export const TodoCreate = () => {
 		dispatch(action.setValueCreateTodo(''));
   }
 
-	const handleChangeCreateTodo = ({target}) => dispatch(action.setValueCreateTodo(target.value));
+	const handleChangeCreateTodo = (text) => dispatch(action.setValueCreateTodo(text));
 
 	return (
 		<>
@@ -22,7 +22,7 @@ export const TodoCreate = () => {
 				type="text"
 				className={`${styles.field}`}
 				value={fieldValue}
-				onChange={handleChangeCreateTodo}
+				onChange={({target}) => handleChangeCreateTodo(target.value)}
 			/>
 			<TodoListTools handleCreateTodo={handleCreateTodo} fieldValue={fieldValue}/>
 		</>
