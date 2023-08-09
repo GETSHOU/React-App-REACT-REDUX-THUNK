@@ -9,9 +9,6 @@ export const useTodos = () => useContext(TodosContext);
 const TodosProvider = ({ children }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [dataTodoList, setDataTodoList] = useState([]);
-	const [fieldValueSearchQuery, setFieldValueSearchQuery] = useState('');
-
-	const valueSearch = useDebounce(fieldValueSearchQuery);
 
 	const deleteTodo = async (id) => {
 		try {
@@ -49,34 +46,14 @@ const TodosProvider = ({ children }) => {
 		}
 	}
 
-	useEffect(() => {
-		const searchQuery = async () => {
-			try {
-				const data = await todosService.search(valueSearch);
-
-				setDataTodoList(data);
-			} catch (error) {
-				console.log(error);
-			}
-		}
-
-		searchQuery();
-
-	}, [valueSearch]);
-
 	const handleDeleteTodo = (id) => deleteTodo(id);
-	const handleSearchQuery = ({target}) => setFieldValueSearchQuery(target.value);
 
 	return (
 		<TodosContext.Provider value={{
+			isLoading,
 			updateTodo,
 			dataTodoList,
-
 			handleDeleteTodo,
-			handleSearchQuery,
-
-			fieldValueSearchQuery,
-
 			}}>{ children }
 		</TodosContext.Provider>
 	)

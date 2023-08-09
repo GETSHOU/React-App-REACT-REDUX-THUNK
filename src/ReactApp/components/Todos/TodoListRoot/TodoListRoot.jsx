@@ -8,7 +8,7 @@ export const TodoListRoot = () => {
 	return (
 		<div className={styles.wrapper}>
 			<h1 className={styles.title}>My To-do list</h1>
-			{/* <TodoSearch /> */}
+			<TodoSearch />
 			<div className={styles.toolsWrapper}>
 				<TodoCreate />
 			</div>

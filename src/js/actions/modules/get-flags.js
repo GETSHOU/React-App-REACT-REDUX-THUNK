@@ -12,11 +12,11 @@ const setValueCreateTodo = (value) => {
 	};
 };
 
-const setValueChangedCreateTodo = (value) => {
+const setValueSearchQuery = (value) => {
 	return {
-		type: 'SET_VALUE_CHANGED_CREATE_TODO',
+		type: 'SET_VALUE_SEARCH_QUERY',
 		payload: value,
 	};
 };
 
-export { setLoading, setValueCreateTodo, setValueChangedCreateTodo };
+export { setLoading, setValueCreateTodo, setValueSearchQuery };

@@ -4,6 +4,15 @@ const todoListState = (state) => {
 };
 const loadingState = (state) => state.flags.isLoading;
 const valueCreateTodoState = (state) => state.flags.valueCreateTodo;
+const valueSearchQueryState = (state) => state.flags.valueSearchQuery;
 const errorLoadingTodoListState = (state) => state.errorLoadingTodoList;
 
-export { todoListState, loadingState, valueCreateTodoState, errorLoadingTodoListState };
+export {
+	/* flags start */
+	loadingState,
+	valueCreateTodoState,
+	valueSearchQueryState,
+	/* flags end */
+	todoListState,
+	errorLoadingTodoListState,
+};
