@@ -28,7 +28,7 @@ export const TodoList = () => {
 									<TodoItem
 										key={todo.id}
 										id={todo.id}
-										currentTextTodo={todo.text}
+										currentTextTodo={todo.text.trim()}
 									/>
 								)}
 							)}

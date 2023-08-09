@@ -1,7 +1,7 @@
 const loadingState = (state) => state.flags.isLoading;
 const todoListState = (state) => state.dataTodoList;
-const valueCreateTodoState = (state) => state.flags.valueCreateTodo;
-const valueSearchQueryState = (state) => state.flags.valueSearchQuery;
+const valueCreateTodoState = (state) => state.inputsValue.valueCreateTodo;
+const valueSearchQueryState = (state) => state.inputsValue.valueSearchQuery;
 const errorLoadingTodoListState = (state) => state.errorLoadingTodoList;
 
 export {

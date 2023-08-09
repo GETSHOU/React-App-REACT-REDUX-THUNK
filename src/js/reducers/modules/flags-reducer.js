@@ -1,7 +1,5 @@
 const initialState = {
 	isLoading: false,
-	valueCreateTodo: '',
-	valueSearchQuery: '',
 };
 
 const flagsReducer = (state = initialState, action) => {
@@ -12,16 +10,6 @@ const flagsReducer = (state = initialState, action) => {
 			return {
 				...state,
 				isLoading: payload,
-			};
-		case 'SET_VALUE_CREATE_TODO':
-			return {
-				...state,
-				valueCreateTodo: payload,
-			};
-		case 'SET_VALUE_SEARCH_QUERY':
-			return {
-				...state,
-				valueSearchQuery: payload,
 			};
 		default:
 			return state;

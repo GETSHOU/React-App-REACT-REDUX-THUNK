@@ -6,12 +6,14 @@ import {
 import thunk from 'redux-thunk';
 import {
 	flagsReducer,
+	inputsValueReducer,
 	todoListDataReducer,
 	errorLoadingTodoListReducer,
 } from '../js/reducers/index';
 
 const rootReducer = combineReducers({
 	flags: flagsReducer,
+	inputsValue: inputsValueReducer,
 	dataTodoList: todoListDataReducer,
 	errorLoadingTodoList: errorLoadingTodoListReducer,
 });

@@ -13,22 +13,20 @@ export const TodoItem = ({id, currentTextTodo}) => {
 	const dispatch = useDispatch();
 
 	const handleUpdateTodo = (id, updatedTodo) => {
-		if (updatedTodo !== currentTextTodo) {
-			dispatch(action.editTodo(id, updatedTodo));
-		} else {
-			setValueEditTodoChanged(false);
-			return;
-		}
-
+		dispatch(action.editTodo(id, updatedTodo));
+		setValueEditTodoChanged(false);
 		setEdit(false);
 	};
 
 	const handleDeleteTodo = (id) => dispatch(action.deleteTodo(id));
 
 	const handleChangeEditTodo = (newText) => {
-		if (currentTextTodo !== newText && newText !== '') {
+		const trimmedNewText = newText.trim();
+
+		if (currentTextTodo !== trimmedNewText && trimmedNewText !== '') {
 			setValueEditTodoChanged(true);
-			if (newText.trim().length === 0) {
+
+			if (trimmedNewText.length === 0) {
 				setValueEditTodoChanged(false);
 			}
 		} else {
