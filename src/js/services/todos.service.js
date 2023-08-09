@@ -44,9 +44,9 @@ const todosService = {
 
 		return data;
 	},
-	sorting: async (sortByField) => {
+	sorting: async (sortingType) => {
 		const response = await fetch(
-			`${BASE_URL}/${todosEndPoint}?_sort=${sortByField}&_order=asc`,
+			`${BASE_URL}/${todosEndPoint}?_sort=${sortingType}&_order=asc`,
 		);
 		const data = await response.json();
 

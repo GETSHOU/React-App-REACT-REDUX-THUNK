@@ -1,8 +1,9 @@
 import todosService from '../../services/todos.service';
+import { setLoading } from '../../actions/index';
 
 const createTodo = (text) => {
 	return async (dispatch) => {
-		dispatch({ type: 'CREATE_TODO_LOADING' });
+		dispatch(setLoading(true));
 
 		try {
 			const data = await todosService.create(text);
@@ -11,8 +12,10 @@ const createTodo = (text) => {
 		} catch (error) {
 			dispatch({ type: 'CREATE_TODO_ERROR', payload: error.message });
 			throw new Error(error);
+		} finally {
+			dispatch(setLoading(false));
 		}
 	};
 };
 
-export { createTodo };
+export default createTodo;

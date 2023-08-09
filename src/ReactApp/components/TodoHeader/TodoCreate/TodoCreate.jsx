@@ -1,29 +1,20 @@
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as selector from '../../../../js/selectors/index';
 import * as action from '../../../../js/actions/index';
 import { TodoListTools } from '../../TodoTools/TodoListTools/TodoListTools';
 import styles from './TodoCreate.module.css';
 
 export const TodoCreate = () => {
-	const [fieldValue, setFieldValue] = useState('');
-	const [fieldValueoChanged, setFieldValueChanged] = useState(false);
+	const fieldValue = useSelector(selector.valueCreateTodoState);
+
 	const dispatch = useDispatch();
 
 	const handleCreateTodo = (text) => {
     dispatch(action.createTodo(text));
-    setFieldValue('');
-		setFieldValueChanged(false);
+		dispatch(action.setValueCreateTodo(''));
   }
 
-	const handleChangeCreateTodo = ({target}) => {
-		if (fieldValue !== target.value && target.value !== '') {
-			setFieldValueChanged(true);
-		} else {
-			setFieldValueChanged(false);
-		}
-
-		setFieldValue(target.value);
-	};
+	const handleChangeCreateTodo = ({target}) => dispatch(action.setValueCreateTodo(target.value));
 
 	return (
 		<>
@@ -33,7 +24,7 @@ export const TodoCreate = () => {
 				value={fieldValue}
 				onChange={handleChangeCreateTodo}
 			/>
-			<TodoListTools handleCreateTodo={handleCreateTodo} fieldValue={fieldValue} fieldValueoChanged={fieldValueoChanged}/>
+			<TodoListTools handleCreateTodo={handleCreateTodo} fieldValue={fieldValue}/>
 		</>
 	)
 }

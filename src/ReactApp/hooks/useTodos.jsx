@@ -9,9 +9,7 @@ export const useTodos = () => useContext(TodosContext);
 const TodosProvider = ({ children }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [dataTodoList, setDataTodoList] = useState([]);
-	const [fieldValueAddTodo, setFieldValueAddTodo] = useState('');
 	const [fieldValueSearchQuery, setFieldValueSearchQuery] = useState('');
-	const [fieldValueAddTodoChanged, setFieldValueAddTodoChanged] = useState(false);
 
 	const valueSearch = useDebounce(fieldValueSearchQuery);
 
@@ -27,22 +25,6 @@ const TodosProvider = ({ children }) => {
 			console.log(error);
 		}
 	}
-
-	const addTodo = async (payload) => {
-		try {
-			setIsLoading(true);
-
-			const data = await todosService.create(payload);
-
-			setDataTodoList((prevState) => [...prevState, data]);
-			setFieldValueAddTodo('');
-			setFieldValueAddTodoChanged(false);
-
-			setIsLoading(false);
-		} catch (error) {
-			console.log(error);
-		}
-	};
 
 	const updateTodo = async (id, text) => {
 		try {
@@ -67,20 +49,6 @@ const TodosProvider = ({ children }) => {
 		}
 	}
 
-	const sortingTodos = async (sortByField) => {
-		try {
-			setIsLoading(true);
-
-			const data = await todosService.sorting(sortByField);
-
-			setDataTodoList(data);
-
-			setIsLoading(false);
-		} catch (error) {
-			console.log(error);
-		}
-	}
-
 	useEffect(() => {
 		const searchQuery = async () => {
 			try {
@@ -96,37 +64,19 @@ const TodosProvider = ({ children }) => {
 
 	}, [valueSearch]);
 
-	const handleChangeAddTodo = ({target}) => {
-		if (fieldValueAddTodo !== target.value && target.value !== '') {
-			setFieldValueAddTodo(target.value);
-			setFieldValueAddTodoChanged(true);
-		} else {
-			setFieldValueAddTodo(target.value);
-			setFieldValueAddTodoChanged(false);
-		}
-	};
-
-	const handleAddTodo = (payload) => addTodo(payload);
-	const handleSortTodos = (sortByField) => sortingTodos(sortByField);
 	const handleDeleteTodo = (id) => deleteTodo(id);
 	const handleSearchQuery = ({target}) => setFieldValueSearchQuery(target.value);
 
 	return (
 		<TodosContext.Provider value={{
-			isLoading,
 			updateTodo,
 			dataTodoList,
 
-			handleAddTodo,
-			handleSortTodos,
 			handleDeleteTodo,
 			handleSearchQuery,
-			handleChangeAddTodo,
 
-			fieldValueAddTodo,
 			fieldValueSearchQuery,
 
-			fieldValueAddTodoChanged
 			}}>{ children }
 		</TodosContext.Provider>
 	)

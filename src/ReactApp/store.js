@@ -5,13 +5,13 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import {
-	loadingReducer,
+	flagsReducer,
 	todoListDataReducer,
 	errorLoadingTodoListReducer,
 } from '../js/reducers/index';
 
 const rootReducer = combineReducers({
-	isLoading: loadingReducer,
+	flags: flagsReducer,
 	dataTodoList: todoListDataReducer,
 	errorLoadingTodoList: errorLoadingTodoListReducer,
 });

@@ -7,8 +7,8 @@ import { TodoItem } from '../TodoItem/TodoItem';
 import styles from './TodoList.module.css';
 
 export const TodoList = () => {
+	const loading = useSelector(selector.loadingState);
 	const todoList = useSelector(selector.todoListState);
-	const isLoading = useSelector(selector.isLoadingState);
 
 	const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ export const TodoList = () => {
 	return (
 		<div className={styles.wrapper}>
 			<ul className={styles.list}>
-				{ isLoading
+				{ loading
 					? <Loader />
 					: <>
 							{todoList.map((todo) => {

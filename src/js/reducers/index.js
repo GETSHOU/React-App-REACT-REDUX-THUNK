@@ -1,5 +1,5 @@
-import loadingReducer from './modules/loading-reducer';
+import flagsReducer from './modules/flags-reducer';
 import todoListDataReducer from './modules/todo-list-data-reducer';
 import errorLoadingTodoListReducer from './modules/error-loading-todo-list-reducer';
 
-export { loadingReducer, todoListDataReducer, errorLoadingTodoListReducer };
+export { flagsReducer, todoListDataReducer, errorLoadingTodoListReducer };

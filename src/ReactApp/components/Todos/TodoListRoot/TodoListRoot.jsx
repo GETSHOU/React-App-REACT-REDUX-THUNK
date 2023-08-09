@@ -12,7 +12,7 @@ export const TodoListRoot = () => {
 			<div className={styles.toolsWrapper}>
 				<TodoCreate />
 			</div>
-			{/* <TodosSortingButton /> */}
+			<TodosSortingButton />
 			<div className={styles.divider}></div>
 			<TodoList />
 		</div>

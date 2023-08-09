@@ -1,8 +1,9 @@
 const todoListState = (state) => {
-	console.log(state);
+	// console.log(state);
 	return state.dataTodoList;
 };
-const isLoadingState = (state) => state.isLoading;
+const loadingState = (state) => state.flags.isLoading;
+const valueCreateTodoState = (state) => state.flags.valueCreateTodo;
 const errorLoadingTodoListState = (state) => state.errorLoadingTodoList;
 
-export { todoListState, isLoadingState, errorLoadingTodoListState };
+export { todoListState, loadingState, valueCreateTodoState, errorLoadingTodoListState };
