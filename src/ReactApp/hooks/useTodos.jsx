@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { useDebounce } from '../hooks/useDebounce';
+import { createContext, useContext, useState } from "react";
 import todosService from "../../js/services/todos.service";
 
 const TodosContext = createContext(null);
@@ -23,35 +22,11 @@ const TodosProvider = ({ children }) => {
 		}
 	}
 
-	const updateTodo = async (id, text) => {
-		try {
-			setIsLoading(true);
-
-			const todoPosition = dataTodoList.findIndex((todo) => todo.id === id);
-			const currentTodo = dataTodoList.find((todo) => todo.id === id);
-
-			if (todoPosition !== -1) {
-				const data = await todosService.update(id, currentTodo, text.trim());
-				const updatedTodo = await data.json();
-
-				const copyDataToDoList = dataTodoList.slice();
-				copyDataToDoList[todoPosition] = updatedTodo;
-
-				setDataTodoList(copyDataToDoList);
-
-				setIsLoading(false);
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	}
-
 	const handleDeleteTodo = (id) => deleteTodo(id);
 
 	return (
 		<TodosContext.Provider value={{
 			isLoading,
-			updateTodo,
 			dataTodoList,
 			handleDeleteTodo,
 			}}>{ children }

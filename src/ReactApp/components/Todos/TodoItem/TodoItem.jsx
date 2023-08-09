@@ -1,18 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useRef, useState } from 'react';
-import * as selector from '../../../../js/selectors/index';
 import * as action from '../../../../js/actions/index';
 import { TodoItemTools } from '../../TodoTools/TodoItemTools/TodoItemTools';
 import styles from './TodoItem.module.css';
 
 export const TodoItem = ({id, currentTextTodo}) => {
-	const [valueEditTodoChanged, setValueEditTodoChanged] = useState(false);
-
-
-	// const valueEditTodo = useSelector(selector.valueEditTodoState);
-
 	const [isEdit, setEdit] = useState(false);
 	const [valueEditTodo, setValueEditTodo] = useState(currentTextTodo);
+	const [valueEditTodoChanged, setValueEditTodoChanged] = useState(false);
 
 	const inputRef = useRef(null);
 	const dispatch = useDispatch();
@@ -27,6 +22,8 @@ export const TodoItem = ({id, currentTextTodo}) => {
 
 		setEdit(false);
 	};
+
+	const handleDeleteTodo = (id) => dispatch(action.deleteTodo(id));
 
 	const handleChangeEditTodo = (newText) => {
 		if (currentTextTodo !== newText && newText !== '') {
@@ -43,17 +40,18 @@ export const TodoItem = ({id, currentTextTodo}) => {
 
 	const handleEdit = () => {
 		inputRef.current.focus();
+
 		setEdit(true);
 	};
 
 	const handleCancel = () => {
 		inputRef.current.focus();
+
 		setValueEditTodo(currentTextTodo);
 		setValueEditTodoChanged(false);
 		setEdit(false);
 	};
 
-	//
 	return (
 		<li className={!isEdit ? styles.item : `${styles.item} ${styles.itemIsEdit}`}>
 			<input type="text"
@@ -70,6 +68,7 @@ export const TodoItem = ({id, currentTextTodo}) => {
 				handleCancel={handleCancel}
 				valueEditTodo={valueEditTodo}
 				handleUpdateTodo={handleUpdateTodo}
+				handleDeleteTodo={handleDeleteTodo}
 				valueEditTodoChanged={valueEditTodoChanged}
 			/>
 		</li>
