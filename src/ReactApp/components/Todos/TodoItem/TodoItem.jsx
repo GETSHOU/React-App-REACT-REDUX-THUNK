@@ -18,7 +18,7 @@ export const TodoItem = ({id, currentTextTodo}) => {
 		setEdit(false);
 	};
 
-	const handleDeleteTodo = (id) => dispatch(action.deleteTodo(id));
+	const handleRemoveTodo = (id) => dispatch(action.removeTodo(id));
 
 	const handleChangeEditTodo = (newText) => {
 		const trimmedNewText = newText.trim();
@@ -66,7 +66,7 @@ export const TodoItem = ({id, currentTextTodo}) => {
 				handleCancel={handleCancel}
 				valueEditTodo={valueEditTodo}
 				handleUpdateTodo={handleUpdateTodo}
-				handleDeleteTodo={handleDeleteTodo}
+				handleRemoveTodo={handleRemoveTodo}
 				valueEditTodoChanged={valueEditTodoChanged}
 			/>
 		</li>

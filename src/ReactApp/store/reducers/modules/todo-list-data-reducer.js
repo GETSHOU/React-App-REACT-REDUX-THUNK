@@ -6,13 +6,13 @@ const todoListDataReducer = (state = [], action) => {
 		case 'SORTING_TODO_SUCCESS':
 		case 'SEARCH_TODO_SUCCESS':
 		case 'UPDATE_TODO_LIST_SUCCESS':
-		case 'DELETE_TODO_SUCCESS':
+		case 'REMOVE_TODO_SUCCESS':
 			return payload;
 		case 'GET_TODO_LIST_ERROR':
 		case 'SORTING_TODO_ERROR':
 		case 'SEARCH_TODO_ERROR':
 		case 'UPDATE_TODO_LIST_ERROR':
-		case 'DELETE_TODO_ERROR':
+		case 'REMOVE_TODO_ERROR':
 			return [];
 		case 'CREATE_TODO_SUCCESS':
 			return [...state, payload];

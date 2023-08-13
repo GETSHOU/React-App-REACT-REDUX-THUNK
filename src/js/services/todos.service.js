@@ -11,7 +11,7 @@ const todosService = {
 			throw new Error(`ОШИБКА ${response.status}! ПУТЬ НЕ НАЙДЕН!`);
 		}
 	},
-	delete: async (id) => {
+	remove: async (id) => {
 		await fetch(`${BASE_URL}/${todosEndPoint}/${id}`, {
 			method: 'DELETE',
 			headers: { 'Content-Type': 'application/json;charset=utf-8' },

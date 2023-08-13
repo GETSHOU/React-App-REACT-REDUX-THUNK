@@ -7,7 +7,7 @@ export const TodoItemTools = ({
 	handleCancel,
 	valueEditTodo,
 	handleUpdateTodo,
-	handleDeleteTodo,
+	handleRemoveTodo,
 	valueEditTodoChanged
 }) => {
 	return (
@@ -18,7 +18,7 @@ export const TodoItemTools = ({
 										onClick={() => handleEdit()}>EDIT
 						</button>
 						<button className={`${styles.button} ${styles.deleteButton}`}
-										onClick={() => handleDeleteTodo(id)}>DEL
+										onClick={() => handleRemoveTodo(id)}>DEL
 						</button>
 					</>
 				: <>

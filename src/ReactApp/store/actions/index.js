@@ -2,7 +2,7 @@ import { setLoading } from './modules/get-flags';
 import { setValueCreateTodo, setValueSearchQuery } from './modules/get-inputs-value';
 
 import editTodo from './modules/edit-todo';
-import deleteTodo from './modules/delete-todo';
+import removeTodo from './modules/remove-todo';
 import createTodo from './modules/create-todo';
 import getTodoList from './modules/get-todo-list';
 import searchQuery from './modules/search-query-todo';
@@ -16,7 +16,7 @@ export {
 	setValueSearchQuery,
 	/* data */
 	editTodo,
-	deleteTodo,
+	removeTodo,
 	createTodo,
 	getTodoList,
 	searchQuery,

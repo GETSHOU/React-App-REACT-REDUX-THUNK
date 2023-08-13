@@ -1,7 +1,7 @@
 import todosService from '../../../../js/services/todos.service';
-import * as action from '../../actions/index';
+import * as action from '../index';
 
-const deleteTodo = (id) => {
+const removeTodo = (id) => {
 	return async (dispatch, getState) => {
 		const dataTodoList = getState().dataTodoList;
 		const filterTodoListById = dataTodoList.filter((todo) => todo.id !== id);
@@ -9,11 +9,11 @@ const deleteTodo = (id) => {
 		dispatch(action.setLoading(true));
 
 		try {
-			await todosService.delete(id);
+			await todosService.remove(id);
 
-			dispatch({ type: 'DELETE_TODO_SUCCESS', payload: filterTodoListById });
+			dispatch({ type: 'REMOVE_TODO_SUCCESS', payload: filterTodoListById });
 		} catch (error) {
-			dispatch({ type: 'DELETE_TODO_ERROR', payload: error.message });
+			dispatch({ type: 'REMOVE_TODO_ERROR', payload: error.message });
 			throw new Error(error);
 		} finally {
 			dispatch(action.setLoading(false));
@@ -21,4 +21,4 @@ const deleteTodo = (id) => {
 	};
 };
 
-export default deleteTodo;
+export default removeTodo;
