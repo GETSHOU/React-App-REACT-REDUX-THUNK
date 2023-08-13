@@ -13,7 +13,7 @@ export const TodoItem = ({id, currentTextTodo}) => {
 	const dispatch = useDispatch();
 
 	const handleUpdateTodo = (id, updatedTodo) => {
-		dispatch(action.editTodo(id, updatedTodo));
+		dispatch(action.updateTodo(id, updatedTodo));
 		setValueEditTodoChanged(false);
 		setEdit(false);
 	};

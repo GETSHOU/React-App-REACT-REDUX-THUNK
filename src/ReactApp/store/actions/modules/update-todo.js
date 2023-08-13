@@ -1,7 +1,7 @@
 import todosService from '../../../../js/services/todos.service';
-import * as action from '../../actions/index';
+import * as action from '../index';
 
-const editTodo = (id, text) => {
+const updateTodo = (id, text) => {
 	return async (dispatch, getState) => {
 		const dataTodoList = getState().dataTodoList;
 
@@ -12,7 +12,7 @@ const editTodo = (id, text) => {
 			const currentTodo = dataTodoList.find((todo) => todo.id === id);
 
 			if (todoPosition !== -1) {
-				const data = await todosService.edit(id, currentTodo, text.trim());
+				const data = await todosService.update(id, currentTodo, text.trim());
 				const updatedTodo = await data.json();
 
 				const copyDataToDoList = dataTodoList.slice();
@@ -29,4 +29,4 @@ const editTodo = (id, text) => {
 	};
 };
 
-export default editTodo;
+export default updateTodo;

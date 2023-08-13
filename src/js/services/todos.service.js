@@ -27,7 +27,7 @@ const todosService = {
 
 		return data;
 	},
-	edit: async (id, currentTodo, text) => {
+	update: async (id, currentTodo, text) => {
 		const response = await fetch(`${BASE_URL}/${todosEndPoint}/${id}`, {
 			method: 'PATCH',
 			headers: { 'Content-Type': 'application/json;charset=utf-8' },
