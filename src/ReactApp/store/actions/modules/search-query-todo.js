@@ -1,4 +1,4 @@
-import todosService from '../../services/todos.service';
+import todosService from '../../../../js/services/todos.service';
 
 const searchQuery = (valueSearchQuery) => {
 	return async (dispatch) => {

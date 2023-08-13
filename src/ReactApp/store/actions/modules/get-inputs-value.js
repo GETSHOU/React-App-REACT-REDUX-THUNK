@@ -1,10 +1,3 @@
-const setLoading = (value) => {
-	return {
-		type: 'SET_LOADING',
-		payload: value,
-	};
-};
-
 const setValueCreateTodo = (value) => {
 	return {
 		type: 'SET_VALUE_CREATE_TODO',
@@ -19,4 +12,4 @@ const setValueSearchQuery = (value) => {
 	};
 };
 
-export { setLoading, setValueCreateTodo, setValueSearchQuery };
+export { setValueCreateTodo, setValueSearchQuery };

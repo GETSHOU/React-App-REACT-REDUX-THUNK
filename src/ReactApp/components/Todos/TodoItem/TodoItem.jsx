@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useRef, useState } from 'react';
-import * as action from '../../../../js/actions/index';
+import * as action from '../../../store/actions/index';
 import { TodoItemTools } from '../../TodoTools/TodoItemTools/TodoItemTools';
 import styles from './TodoItem.module.css';
 

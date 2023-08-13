@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useDebounce } from '../../../hooks/useDebounce';
-import * as selector from '../../../../js/selectors/index';
-import * as action from '../../../../js/actions/index';
+import * as selector from '../../../store/selectors/index';
+import * as action from '../../../store/actions/index';
 import styles from './TodoSearch.module.css';
 
 export const TodoSearch = () => {

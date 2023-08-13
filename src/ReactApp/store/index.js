@@ -9,7 +9,7 @@ import {
 	inputsValueReducer,
 	todoListDataReducer,
 	errorLoadingTodoListReducer,
-} from '../js/reducers/index';
+} from './reducers/index';
 
 const rootReducer = combineReducers({
 	flags: flagsReducer,

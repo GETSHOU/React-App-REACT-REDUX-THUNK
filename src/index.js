@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { App } from './ReactApp/components/App/App';
-import { store } from './ReactApp/store';
+import { store } from './ReactApp/store/index';
 import './css/clearFix.css';
 import './css/index.css';
 

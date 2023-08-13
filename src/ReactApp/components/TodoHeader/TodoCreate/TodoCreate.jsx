@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import * as selector from '../../../../js/selectors/index';
-import * as action from '../../../../js/actions/index';
+import * as selector from '../../../store/selectors/index';
+import * as action from '../../../store/actions/index';
 import { TodoHeaderTools } from '../../TodoTools/TodoHeaderTools/TodoHeaderTools';
 import styles from './TodoCreate.module.css';
 

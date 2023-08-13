@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import * as selector from '../../../../js/selectors/index';
-import * as action from '../../../../js/actions/index';
+import * as selector from '../../../store/selectors/index';
+import * as action from '../../../store/actions/index';
 import { Loader } from "../../Loader/Loader";
 import { TodoItem } from '../TodoItem/TodoItem';
 import styles from './TodoList.module.css';

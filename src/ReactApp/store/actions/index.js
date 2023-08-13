@@ -1,4 +1,5 @@
-import { setLoading, setValueCreateTodo, setValueSearchQuery } from './modules/get-flags';
+import { setLoading } from './modules/get-flags';
+import { setValueCreateTodo, setValueSearchQuery } from './modules/get-inputs-value';
 
 import editTodo from './modules/edit-todo';
 import deleteTodo from './modules/delete-todo';

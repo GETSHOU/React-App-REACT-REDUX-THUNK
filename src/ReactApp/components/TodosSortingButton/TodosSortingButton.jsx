@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import * as action from '../../../js/actions/index';
+import * as action from '../../store/actions/index';
 import styles from './TodosSortingButton.module.css';
 
 export const TodosSortingButton = () => {

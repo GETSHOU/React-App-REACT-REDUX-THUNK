@@ -6,6 +6,4 @@ export {
 	valueSearchQueryState,
 	/* data */
 	todoListState,
-	/* errors */
-	errorLoadingTodoListState,
-} from './selectors';
+} from './modules/selectors';
